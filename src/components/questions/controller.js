@@ -1,5 +1,13 @@
 const postQuestion = require('./store')
 
+//to GET
+const questionModel = require('./model')
+
+async function getQuestion() {
+  const getData = await questionModel.find({})
+  return getData
+}
+
 function generateQuestion(question) {
   return new Promise((resolve, reject) => {
     if(!question) {
@@ -33,5 +41,6 @@ function generateQuestion(question) {
 }
 
 module.exports = {
-  generateQuestion
+  generateQuestion,
+  getQuestion
 }

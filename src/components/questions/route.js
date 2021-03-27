@@ -7,7 +7,10 @@ function routeQuestions(app) {
   app.use('/api/questions', router)
 
   router.get('/', (req, res) => {
-    res.send('Hello from Questions')
+    // res.send('Hello from Questions')
+    controller.getQuestion()
+      .then((response) => res.send(response))
+      .catch((err) => console.error(err))
   })
 
   router.post('/', (req, res) => {

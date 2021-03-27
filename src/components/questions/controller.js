@@ -1,4 +1,6 @@
-function addQuestion(question) {
+const postQuestion = require('./store')
+
+function generateQuestion(question) {
   return new Promise((resolve, reject) => {
     if(!question) {
       console.error('[Message Controller] Pregunta inexistente')
@@ -23,6 +25,7 @@ function addQuestion(question) {
     }
 
     console.log(fullQuestion)
+    postQuestion(fullQuestion)
     resolve(fullQuestion)
   })
 
@@ -30,5 +33,5 @@ function addQuestion(question) {
 }
 
 module.exports = {
-  addQuestion
+  generateQuestion
 }

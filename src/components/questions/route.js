@@ -11,7 +11,7 @@ function routeQuestions(app) {
   })
 
   router.post('/', (req, res) => {
-    controller.addQuestion(req.body)
+    controller.generateQuestion(req.body)
       .then(question => res.status(201).json({
         status: res.statusCode,
         question

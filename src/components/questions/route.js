@@ -1,4 +1,5 @@
 const express = require('express')
+const controller = require('./controller')
 
 function routeQuestions(app) {
   const router = express.Router()
@@ -10,7 +11,12 @@ function routeQuestions(app) {
   })
 
   router.post('/', (req, res) => {
-    res.send('Hello from questions POST')
+    controller.addQuestion(req.body)
+      .then(question => res.status(201).json({
+        status: res.statusCode,
+        question
+      }))
+      .catch(err => console.error(err))
   })
 }
 

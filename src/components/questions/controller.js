@@ -1,12 +1,15 @@
-const postQuestion = require('./store')
+const store = require('./store')
 
 //to GET
 const questionModel = require('./model')
 
-async function getQuestion() {
-  const getData = await questionModel.find({})
-  return getData
+function getAllQuestions() {
+  return new Promise((resolve, reject) => {
+    resolve(store.getQuestions())
+  })
 }
+
+
 
 function generateQuestion(question) {
   return new Promise((resolve, reject) => {
@@ -33,7 +36,7 @@ function generateQuestion(question) {
     }
 
     console.log(fullQuestion)
-    postQuestion(fullQuestion)
+    store.postQuestion(fullQuestion)
     resolve(fullQuestion)
   })
 
@@ -42,5 +45,5 @@ function generateQuestion(question) {
 
 module.exports = {
   generateQuestion,
-  getQuestion
+  getAllQuestions
 }

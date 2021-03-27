@@ -5,4 +5,12 @@ function postQuestion(question) {
   newQuestion.save()
 }
 
-module.exports = postQuestion
+async function getQuestions() {
+  const getData = await questionModel.find({})
+  return getData
+}
+
+module.exports = {
+  postQuestion,
+  getQuestions
+}

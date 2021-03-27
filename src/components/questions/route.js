@@ -8,7 +8,7 @@ function routeQuestions(app) {
 
   router.get('/', (req, res) => {
     // res.send('Hello from Questions')
-    controller.getQuestion()
+    controller.getAllQuestions()
       .then((response) => res.send(response))
       .catch((err) => console.error(err))
   })

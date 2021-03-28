@@ -5,7 +5,7 @@ async function connect(uri) {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-    .then((msg) => console.log(`[DB] Database connected`))
+    .then(() => console.log(`[DB] Database connected`))
     .catch((err) => console.error(err))
 }
 

@@ -1,12 +1,14 @@
 const express = require('express')
 const app = express()
 const { config } = require('../config')
+const cors = require('cors')
 const routeQuestions = require('./components/questions/route')
 const routeStats = require('./components/stats/route')
 const connect = require('./db')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(cors())
 
 routeQuestions(app)
 routeStats(app)

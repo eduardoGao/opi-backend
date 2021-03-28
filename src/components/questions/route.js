@@ -1,4 +1,5 @@
 const express = require('express')
+const controller = require('./controller')
 
 function routeQuestions(app) {
   const router = express.Router()
@@ -6,11 +7,19 @@ function routeQuestions(app) {
   app.use('/api/questions', router)
 
   router.get('/', (req, res) => {
-    res.send('Hello from Questions')
+    // res.send('Hello from Questions')
+    controller.getAllQuestions()
+      .then((response) => res.send(response))
+      .catch((err) => console.error(err))
   })
 
   router.post('/', (req, res) => {
-    res.send('Hello from questions POST')
+    controller.generateQuestion(req.body)
+      .then(question => res.status(201).json({
+        status: res.statusCode,
+        question
+      }))
+      .catch(err => console.error(err))
   })
 }
 

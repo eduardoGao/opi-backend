@@ -65,7 +65,7 @@ function answerQuestion(id, answer) {
 
     const newAnswer = {
       answer_text: answer.answer_text,
-      answer_user: answer.user,
+      answer_user: answer.answer_user,
       answered: {
         atDay: `${fixDay}-${fixMonth}`,
         atHour: `${fixHour}:${fixMinute}`

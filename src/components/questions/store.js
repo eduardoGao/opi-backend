@@ -16,6 +16,8 @@ async function patchQuestion(id, newAnswer) {
   })
 
   findQuestion.answer_text = newAnswer.answer_text
+  findQuestion.answer_user = newAnswer.answer_user
+  findQuestion.answered = newAnswer.answered
   const updateQuestion = await findQuestion.save()
   return updateQuestion
 }

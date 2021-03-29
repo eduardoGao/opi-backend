@@ -29,6 +29,7 @@ function generateQuestion(question) {
     const fixMinute = minute <= 9 ? `0${minute}` : minute
 
 
+
     const fullQuestion = {
       user: question.user,
       question: question.question,
@@ -37,7 +38,12 @@ function generateQuestion(question) {
         atDay: `${fixDay}-${fixMonth}`,
         atHour: `${fixHour}:${fixMinute}`
       },
-      answer_text: question.answer || null
+      answer_text: question.answer_text,
+      answer_user: question.answer_user,
+      answered: {
+        atDay: `${fixDay}-${fixMonth}`,
+        atHour: `${fixHour}:${fixMinute}`
+      }
     }
 
     console.log(fullQuestion)

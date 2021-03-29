@@ -10,7 +10,12 @@ const questionSchema = new Schema({
     atDay: String,
     atHour: String
   },
-  answer_text: String
+  answer_text: String,
+  answer_user: String,
+  answered: {
+    atDay: String,
+    atHour: String
+  }
 }, {
   versionKey: false
 })

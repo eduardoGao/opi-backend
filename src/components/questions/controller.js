@@ -46,7 +46,7 @@ function generateQuestion(question) {
       }
     }
 
-    console.log(fullQuestion)
+    // console.log(fullQuestion)
     store.postQuestion(fullQuestion)
     resolve(fullQuestion)
   })

@@ -21,6 +21,20 @@ function routeQuestions(app) {
       }))
       .catch(err => console.error(err))
   })
+
+  router.patch('/:_id', (req, res) => {
+    const id = req.params._id
+    const answer = req.body
+
+    controller.answerQuestion(id, answer)
+      .then(answerRes => res.status(201).json({
+        status: statusCode,
+        answerRes
+      }))
+      .catch(err => res.status(500).json({
+        err
+      }))
+  })
 }
 
 module.exports = routeQuestions

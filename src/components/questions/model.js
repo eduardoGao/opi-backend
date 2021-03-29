@@ -6,7 +6,10 @@ const questionSchema = new Schema({
   user: String,
   question: String,
   tag: String,
-  published_at: String,
+  published: {
+    atDay: String,
+    atHour: String
+  },
   answer_text: String
 }, {
   versionKey: false

@@ -20,18 +20,23 @@ function generateQuestion(question) {
 
     const date = new Date()
     const day = date.getDate()
+    const fixDay = day <= 9 ? `0${day}` : day
     const month = date.getMonth() + 1
+    const fixMonth = month <= 9 ? `0${month}` : month
     const hour = date.getHours()
+    const fixHour = hour <= 9 ? `0${hour}` : hour
     const minute = date.getMinutes()
-    const published_at = `${day}-${month} a las ${hour}:${minute} horas`
-
+    const fixMinute = minute <= 9 ? `0${minute}` : minute
 
 
     const fullQuestion = {
       user: question.user,
       question: question.question,
       tag: question.tag || null,
-      published_at,
+      published: {
+        atDay: `${fixDay}-${fixMonth}`,
+        atHour: `${hour}:${minute}`
+      },
       answer_text: question.answer || null
     }
 
